@@ -21,12 +21,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ec2-3-95-218-56.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+          ssh-keyscan -H ec2-98-81-235-72.compute-1.amazonaws.com >> ~/.ssh/known_hosts
 
       # Desplegar el código en la instancia EC2
       - name: Deploy to EC2
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@ec2-3-95-218-56.compute-1.amazonaws.com << 'EOF'
+          ssh -i ~/.ssh/id_rsa ubuntu@ec2-98-81-235-72.compute-1.amazonaws.com << 'EOF'
             cd /home/ubuntu/my-server-node
             git pull origin main
             npm install
